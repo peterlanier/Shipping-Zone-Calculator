@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
-import './style.css';
+import React, { Component } from "react";
+import { render } from "react-dom";
+import Calculator from "./Calculator";
+import Grid from "@material-ui/core/Grid";
 
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      name: 'React'
-    };
+    this.state = {};
   }
 
   render() {
     return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
+      <Grid container>
+        <Grid item>
+          <Calculator />
+        </Grid>
+        <Grid item>
+          <Calculator />
+        </Grid>
+      </Grid>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
