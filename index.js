@@ -5,22 +5,17 @@ import Grid from "@material-ui/core/Grid";
 
 class App extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      value: 30,
-      value2: 88
-    };
+    super();
   }
 
   render() {
-    const {...props} = this.state;
+    const { ...props } = this.state;
     return (
-      <Grid maxWidth="lg" container>
-        <Grid md={6} item>
-          <Calculator { ...props } />
-        </Grid>
-        <Grid md={6} item>
-          <Calculator { ...props } />
+      <Grid container>
+        <Grid md={12} item>
+          <Calculator
+          {...props}
+          />
         </Grid>
       </Grid>
     );

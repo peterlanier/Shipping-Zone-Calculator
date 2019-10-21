@@ -20,20 +20,22 @@ const useStyles = makeStyles({
 
 export default function ZoneTable() {
   const classes = useStyles();
+  const cellStyle = {borderRight:"1px solid rgba(0, 0, 0, 0.5)"};
 
   return (
     <Paper className={classes.root}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>1</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>2</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>3</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>4</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>5</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>6</TableCell>
-            <TableCell align="center" style={{borderRight:"1px solid #808080"}}>7</TableCell>
+            <TableCell align="center" style={cellStyle}>1</TableCell>
+            <TableCell align="center" style={cellStyle}>2</TableCell>
+            <TableCell align="center" style={cellStyle}>3</TableCell>
+            <TableCell align="center" style={cellStyle}>4</TableCell>
+            <TableCell align="center" style={cellStyle}>5</TableCell>
+            <TableCell align="center" style={cellStyle}>6</TableCell>
+            <TableCell align="center" style={cellStyle}>7</TableCell>
             <TableCell align="center">8</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>

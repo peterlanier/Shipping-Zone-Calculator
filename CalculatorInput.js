@@ -2,60 +2,35 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import "./style.css";
 import InputSlider from "./Components/InputSlider";
-
-
+import CitySelect from "./Components/CitySelect";
 
 import Grid from "@material-ui/core/Grid";
 
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import { useCalc } from "./calculator-context";
 
-export default class Calculator extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    const { value, ...props } = this.props;
+export default function CalculatorInput(props) {
+    // const { orders, weight, ...props } = this.props;
+    const [orders] = useCalc();
     return (
+
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <InputSlider
-            label="Number of Orders"
-            value={value}
+            label="Order Volume"
+            valueV={orders}
+            { ...props}
           />
         </Grid>
         <Grid item xs={6}>
           <InputSlider
-            label="Average DIM Weight"
-            value={value}
-          />
-        </Grid>
+            label="Average Parcel Weight"
 
-        <Grid item xs={6}>
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-age-simple">City</InputLabel>
-            <Select
-              autoWidth={true}
-              inputProps={{
-                name: "City",
-                id: "outlined-age-simple"
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>San Francision</MenuItem>
-              <MenuItem value={20}>Seattle</MenuItem>
-              <MenuItem value={30}>New York</MenuItem>
-              <MenuItem value={30}>Miami</MenuItem>
-            </Select>
-          </FormControl>
+            { ...props}
+          />
         </Grid>
       </Grid>
     );
   }
-}
+
