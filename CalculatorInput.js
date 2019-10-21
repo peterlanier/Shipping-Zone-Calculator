@@ -14,17 +14,24 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
 export default class Calculator extends Component {
+  constructor(props){
+    super(props);
+  }
+
   render() {
+    const { value, ...props } = this.props;
     return (
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <InputSlider
             label="Number of Orders"
+            value={value}
           />
         </Grid>
         <Grid item xs={6}>
           <InputSlider
             label="Average DIM Weight"
+            value={value}
           />
         </Grid>
 

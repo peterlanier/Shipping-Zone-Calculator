@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Input from "@material-ui/core/Input";
@@ -18,9 +19,8 @@ export default class InputSlider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      label: this.props.label,
-      value: 30
-    };
+      value: this.props.value
+    }
     this.handleSliderChange = this.handleSliderChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -54,10 +54,12 @@ export default class InputSlider extends Component {
   // };
 
   render() {
+    const {label} = this.props;
+
     return (
       <div>
         <Typography id="input-slider" gutterBottom>
-          {this.state.label}
+          {label}{this.state.value}
         </Typography>
         <Grid container spacing={2} alignItems="center">
           <Grid item>
@@ -90,4 +92,9 @@ export default class InputSlider extends Component {
       </div>
     );
   }
+}
+
+InputSlider.propTypes = {
+  label: PropTypes.string,
+  value: PropTypes.number
 }
