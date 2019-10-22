@@ -7,7 +7,6 @@ import CalculatorOutput from "./CalculatorOutput";
 import Store from "./Store";
 
 export default function Calculator(props) {
-  
 
     return (
       <Store>
@@ -20,7 +19,7 @@ export default function Calculator(props) {
             >
               <CalculatorInput />
             </Grid>
-            <Grid item xs={12} md={12} style={{ }}>
+            <Grid item xs={12} md={12}>
               <CalculatorOutput />
             </Grid>
           </Grid>

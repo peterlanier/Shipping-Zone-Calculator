@@ -34,22 +34,22 @@ export default function ResultsTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableRow>
           <TableCell>Billed Weight</TableCell>
-          <TableCell style={tableHeader}>{orders * weight}</TableCell>
+          <TableCell style={tableHeader}>{orders * weight} lbs.</TableCell>
         </TableRow>
 
         <TableRow>
           <TableCell>Avg. Shipping Time</TableCell>
-          <TableCell style={tableHeader}>{(orders * weight * .9).toFixed(2)}</TableCell>
+          <TableCell style={tableHeader}>{((orders * weight * .9)/150).toFixed(0)} days</TableCell>
         </TableRow>
 
         <TableRow>
           <TableCell>Avg. Per Parcel Cost</TableCell>
-          <TableCell style={tableHeader}>${(orders * weight * .8).toFixed(2)}</TableCell>
+          <TableCell style={tableHeader}>${(orders * weight * .13).toFixed(2)}</TableCell>
         </TableRow>
 
         <TableRow>
           <TableCell>Order Shipping Cost</TableCell>
-          <TableCell style={tableHeader}>${(orders * weight * .13).toFixed(2)}</TableCell>
+          <TableCell style={tableHeader}>${(orders * weight * .8).toFixed(2)}</TableCell>
         </TableRow>
 
         <TableRow>

@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 export default function CitySelect(props) {
 
-  const {values, value, setValue, num} = props;
+  const {values, value, setValue} = props;
 
   console.log(setValue, value);
 
@@ -16,11 +16,8 @@ export default function CitySelect(props) {
   ));
 
 
-  const handleChange = event => {
-    setValue(oldValues => ({
-      ...oldValues,
-      [event.target.name]: event.target.value
-    }));
+  const handleChange = (event, newValue) => {
+    setValue(event.target.value);
   };
 
   return (

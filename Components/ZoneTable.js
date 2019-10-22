@@ -17,17 +17,21 @@ const useStyles = makeStyles({
   }
 });
 
-function createData(zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8) {
-  return { zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
-}
 
-const resultsRow = [
-  createData(),
-]
+
+// function createData(zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8) {
+//   return { zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
+// }
+
+// const resultsRow = [
+//   createData(11, 22, 33, 44, 55, 66, 77, 88 ),
+// ]
 
 export default function ZoneTable() {
   const classes = useStyles();
   const cellStyle = { borderRight: "1px solid rgba(0, 0, 0, 0.5)" };
+
+  const 
 
   return (
     <Paper className={classes.root}>
