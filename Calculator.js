@@ -4,23 +4,27 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import CalculatorInput from "./CalculatorInput";
 import CalculatorOutput from "./CalculatorOutput";
-import {CalcProvider} from "./calculator-context";
+import { CalcProvider } from "./calculator-context";
 
 export default class Calculator extends Component {
   render() {
-    const { ...props } = this.props;
+
     return (
       <CalcProvider>
         <Container maxWidth="lg">
           <Grid container>
-            <Grid item xs={12} style={{padding: '20px', backgroundColor: 'lightgray'}}>
-              <CalculatorInput {...props} />
+            <Grid
+              item
+              xs={12}
+              style={{ padding: "20px", backgroundColor: "lightgray" }}
+            >
+              <CalculatorInput />
             </Grid>
-            <Grid item xs={12} md={12} style={{padding: '20px'}}>
-              <CalculatorOutput {...props} />
+            <Grid item xs={12} md={12} style={{ padding: "20px" }}>
+              <CalculatorOutput />
             </Grid>
-            <Grid item xs={12} md={12} style={{padding: '20px'}}>
-              <CalculatorOutput {...props} />
+            <Grid item xs={12} md={12} style={{ padding: "20px" }}>
+              <CalculatorOutput />
             </Grid>
           </Grid>
         </Container>

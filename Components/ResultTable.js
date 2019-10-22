@@ -26,10 +26,7 @@ export default function ResultsTable() {
 
   return (
     <Paper className={classes.root}>
-      <Typography id="input-slider" gutterBottom>
-        RESULTS
-      </Typography>
-      
+
       <Table className={classes.table} aria-label="simple table">
         <TableRow>
           <TableCell>Billed Weight</TableCell>

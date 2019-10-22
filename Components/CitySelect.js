@@ -5,14 +5,20 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 
-export default class CitySelect extends Component {
-  render() {
+
+export default function CitySelect(props) {
+    
+    const cities = props.values;
+    console.log(cities)
+    const CityList = cities.map((city) => <MenuItem value={city}>{city}</MenuItem>);
+
     return (
-      <FormControl variant="outlined">
+      <FormControl variant="outlined" style={{width: '100px'}}>
         <InputLabel htmlFor="outlined-age-simple">City</InputLabel>
         <Select
           value=""
-          autoWidth={true}
+          autoWidth={false}
+
           inputProps={{
             name: "City",
             id: "outlined-age-simple"
@@ -21,12 +27,9 @@ export default class CitySelect extends Component {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>San Francision</MenuItem>
-          <MenuItem value={20}>Seattle</MenuItem>
-          <MenuItem value={30}>New York</MenuItem>
-          <MenuItem value={30}>Miami</MenuItem>
+          {CityList}
         </Select>
       </FormControl>
     );
-  }
+  
 }

@@ -7,7 +7,8 @@ import Input from "@material-ui/core/Input";
 import Grid from "@material-ui/core/Grid";
 
 export default function InputSlider(props) {
-  const [value, setValue] = React.useState(30);
+  const {value, setValue} = props;
+
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
