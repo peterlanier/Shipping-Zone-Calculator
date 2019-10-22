@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";

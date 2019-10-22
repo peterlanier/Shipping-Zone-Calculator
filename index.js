@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import Calculator from "./Calculator";
 import Grid from "@material-ui/core/Grid";
+import {OrdersContext} from "./Store";
 
 class App extends Component {
   constructor(props) {

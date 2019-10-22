@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import CalculatorInput from "./CalculatorInput";
 import CalculatorOutput from "./CalculatorOutput";
-import { CalcProvider } from "./calculator-context";
+import Store from "./Store";
 
 export default class Calculator extends Component {
   render() {

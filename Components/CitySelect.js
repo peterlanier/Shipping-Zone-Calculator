@@ -8,9 +8,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 export default function CitySelect(props) {
     
-    const cities = props.values;
-    console.log(cities)
-    const CityList = cities.map((city) => <MenuItem value={city}>{city}</MenuItem>);
+    // const cities = props.values;
+    // console.log(cities)
+    // const CityList = cities.map((city) => <MenuItem value={city}>{city}</MenuItem>);
 
     return (
       <FormControl variant="outlined" style={{width: '100px'}}>
@@ -27,7 +27,7 @@ export default function CitySelect(props) {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {CityList}
+          
         </Select>
       </FormControl>
     );
