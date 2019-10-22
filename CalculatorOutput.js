@@ -6,22 +6,69 @@ import Grid from "@material-ui/core/Grid";
 import CitySelect from "./Components/CitySelect";
 import ResultTable from "./Components/ResultTable";
 import Typography from "@material-ui/core/Typography";
-import CalcContext from "./calculator-context";
+import { CityListContext, DistListContext, ChosenCityContext } from "./Store";
 
-export default function CalculatorOutput() {
-  const state = useContext(CalcContext);
+export default function CalculatorOutput(props) {
+  const [cityList, setCity] = useContext(CityListContext);
+  const [distList, setDist] = useContext(DistListContext);
+  const [chosenCity, setChosenCity] = useContext(ChosenCityContext);
 
-    return (
-      <Grid container spacing={2}>
+  return (
+    <>
+      <Grid container spacing={2} style={{backgroundColor: "white", padding: "0 40px"}}>
         <Grid item xs={6}>
-          <CitySelect values={state.cities} />
+          <Typography
+            id="input-slider"
+            style={{ display: "inline-block" }}
+            gutterBottom
+          >
+          <div class="circle circle1">3</div>
+            Select your port city
+          </Typography>
         </Grid>
-        <Grid item />
+        <Grid item xs={6}>
+          <CitySelect
+            values={cityList}
+            value={chosenCity}
+            setValue={setChosenCity}
+            num="3"
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} style={{backgroundColor: "#FAFAFA", padding: "10px 40px", margin: "60px 0"}}>
         <Grid item xs={12} md={6}>
           <Typography id="input-slider" gutterBottom>
             FULLFILLMENT FROM SELECTED AREAS
           </Typography>
-          {console.log(state)}
+          <ZoneTable />
+        </Grid>
+        <Grid item xs={12} md={6} style={{ paddingLeft: "100px" }}>
+          <Typography id="input-slider" gutterBottom>
+            RESULTS
+          </Typography>
+          <ResultTable />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} style={{backgroundColor: "white", padding: "0 40px"}}>
+        <Grid item xs={6}>
+          <Typography
+            id="input-slider"
+            style={{ display: "inline-block" }}
+            gutterBottom
+          >
+          <div class="circle circle1">4</div>
+            RED STAG FULLFILMENT CENTERS
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          <CitySelect values={distList} />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} style={{backgroundColor: "#FAFAFA", padding: "10px 40px", margin: "60px 0"}}>
+        <Grid item xs={12} md={6}>
+          <Typography id="input-slider" gutterBottom>
+            FULLFILLMENT FROM SELECTED AREAS
+          </Typography>
           <ZoneTable />
         </Grid>
         <Grid item xs={12} md={6}>
@@ -31,6 +78,6 @@ export default function CalculatorOutput() {
           <ResultTable />
         </Grid>
       </Grid>
-    );
-
+    </>
+  );
 }

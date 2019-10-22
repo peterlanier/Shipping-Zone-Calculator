@@ -7,7 +7,7 @@ import Input from "@material-ui/core/Input";
 import Grid from "@material-ui/core/Grid";
 
 export default function InputSlider(props) {
-  const {value, setValue} = props;
+  const {value, setValue, num} = props;
 
 
   const handleSliderChange = (event, newValue) => {
@@ -29,9 +29,10 @@ export default function InputSlider(props) {
   return (
     <div>
       <Typography id="input-slider" gutterBottom>
+        <div class="circle">{num}</div>
         {props.label}
       </Typography>
-      <Grid container spacing={2} alignItems="center">
+      <Grid container spacing={2} alignItems="center" style={{marginTop: "20px"}}>
         <Grid item />
         <Grid item>
           <Input
@@ -60,80 +61,3 @@ export default function InputSlider(props) {
     </div>
   );
 }
-
-// export default class InputSlider extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       value: 20
-//     };
-//     this.handleSliderChange = this.handleSliderChange.bind(this);
-//     this.handleInputChange = this.handleInputChange.bind(this);
-//     this.handleBlur = this.handleBlur.bind(this);
-//   }
-
-//   handleSliderChange(event, newValue) {
-//     this.setState({ value: newValue });
-//   }
-
-//   handleInputChange(event) {
-//     this.setState({ value: event.target.value });
-//   }
-
-//   handleBlur() {
-//     if (this.state.value < 0) {
-//       this.setState({ value: 0 });
-//     } else if (this.state.value > 100) {
-//       this.setState({ value: 100 });
-//     }
-//   }
-
-//   render() {
-//     const { label } = this.props;
-
-//     return (
-//       <div>
-//         <Typography id="input-slider" gutterBottom>
-//           {label}
-//         </Typography>
-//         <Grid container spacing={2} alignItems="center">
-//           <Grid item>
-
-//               <Input
-//                 // className={classes.input}
-//                 value={this.state.value}
-//                 margin="dense"
-//                 onChange={this.handleInputChange}
-//                 onBlur={this.handleBlur}
-//                 inputProps={{
-//                   step: 10,
-//                   min: 0,
-//                   max: 100,
-//                   type: "number",
-//                   "aria-labelledby": "input-slider"
-//                 }}
-//               />
-
-//           </Grid>
-//           <Grid item xs>
-//             <Slider
-//               value={
-//                 typeof this.state.value === "number"
-//                   ? this.state.value
-//                   : this.state.value
-//               }
-//               onChange={this.handleSliderChange}
-//               aria-labelledby="input-slider"
-//             />
-//           </Grid>
-//           <Grid item />
-//         </Grid>
-//       </div>
-//     );
-//   }
-// }
-
-// InputSlider.propTypes = {
-//   label: PropTypes.string,
-//   value: PropTypes.number
-// };

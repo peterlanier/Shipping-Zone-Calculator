@@ -1,3 +1,15 @@
 h1, p {
   font-family: Lato;
 }
+
+.circle {
+  display: inline-block;
+  background: dodgerblue;
+  color: white;
+  height: 30px;
+  width: 37px;
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  padding-top: 7px
+}
