@@ -14,7 +14,7 @@ const Store = ({ children }) => {
   const [cityList, setCity] = useState([
     "New York",
     "L.A.",
-    "San Fransisco"
+    "San Francisco"
   ]);
   const [distList, setDist] = useState([
     "Knoxville + Salt Lake City",

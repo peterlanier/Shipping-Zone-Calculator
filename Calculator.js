@@ -10,12 +10,13 @@ export default function Calculator(props) {
 
     return (
       <Store>
-        <Container maxWidth="lg">
+        <Container>
           <Grid container>
             <Grid
               item
               xs={12}
-              style={{ padding: "60px 40px", marginBottom: "60px", backgroundColor: "lightgray" }}
+              md={12}
+              style={{ padding: "60px 40px", marginBottom: "20px", backgroundColor: "lightgray" }}
             >
               <CalculatorInput />
             </Grid>

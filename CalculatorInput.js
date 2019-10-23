@@ -11,11 +11,27 @@ export default function CalculatorInput() {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={6}>
-        <InputSlider label="Avg. # of Orders/Month" value={orders} setValue={setOrders} num="1" />
+      <Grid item xs={12} md={6}>
+        <InputSlider
+          label="ORDER VOLUME"
+          value={orders}
+          setValue={setOrders}
+          num="1"
+          min={100}
+          max={100000}
+          step={1000}
+        />
       </Grid>
-      <Grid item xs={6}>
-        <InputSlider label="Average Parcel Weight (lbs.)" value={weight} setValue={setWeight} num="2" />
+      <Grid item xs={12} md={6}>
+        <InputSlider
+          label="PARCEL WEIGHT"
+          value={weight}
+          setValue={setWeight}
+          num="2"
+          min={0}
+          max={150}
+          step={10}
+        />
       </Grid>
     </Grid>
   );

@@ -7,8 +7,24 @@ import Input from "@material-ui/core/Input";
 import Grid from "@material-ui/core/Grid";
 
 export default function InputSlider(props) {
-  const {value, setValue, num} = props;
+  const { value, setValue, num, min, max, step } = props;
 
+  const marks = [
+    {
+      value: min,
+      label: min
+    },
+
+    {
+      value: max,
+      label: max
+    }
+  ];
+
+  function valuetext(value) {
+    //return `${value}°C`;
+    return value;
+  }
 
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
@@ -19,20 +35,25 @@ export default function InputSlider(props) {
   };
 
   const handleBlur = () => {
-    if (value < 0) {
-      setValue(0);
-    } else if (value > 100) {
-      setValue(100);
+    if (value < min) {
+      setValue(min);
+    } else if (value > max) {
+      setValue(max);
     }
   };
 
   return (
     <div>
       <Typography id="input-slider" gutterBottom>
-        <div class="circle">{num}</div>
-        {props.label}
+        <span className="circle">{num}</span>
+        <strong>{props.label}</strong>
       </Typography>
-      <Grid container spacing={2} alignItems="center" style={{marginTop: "20px"}}>
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        style={{ marginTop: "20px" }}
+      >
         <Grid item />
         <Grid item>
           <Input
@@ -41,20 +62,24 @@ export default function InputSlider(props) {
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
-              min: 0,
-              max: 100,
+              step: step,
+              min: min,
+              max: max,
               type: "number",
               "aria-labelledby": "input-slider"
             }}
           />
         </Grid>
 
-        <Grid item xs>
+        <Grid item xs style={{padding:"0 40px"}}>
           <Slider
             value={typeof value === "number" ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
+            min={min}
+            max={max}
+            marks={marks}
+
           />
         </Grid>
       </Grid>

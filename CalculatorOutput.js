@@ -32,8 +32,8 @@ export default function CalculatorOutput(props) {
             style={{ display: "inline-block" }}
             gutterBottom
           >
-            <div class="circle">3</div>
-            Select your port city
+            <span className="circle">3</span>
+            <strong>SELECT YOUR PORT CITY</strong>
           </Typography>
         </Grid>
         <Grid item xs={6}>
@@ -44,18 +44,21 @@ export default function CalculatorOutput(props) {
           />
         </Grid>
       </Grid>
+
       <Grid
         container
         spacing={2}
         style={{
           backgroundColor: "#FAFAFA",
           padding: "10px 40px",
-          margin: "60px 0"
+          margin: "20px 0"
         }}
       >
         <Grid item xs={12} md={8}>
           <Typography id="input-slider" gutterBottom>
-            { chosenCity ? "FULLFILLMENT FROM " + chosenCity.toUpperCase() : null}
+            {chosenCity
+              ? "FULLFILLMENT FROM " + chosenCity.toUpperCase()
+              : "SELECT CITY"}
           </Typography>
           <ZoneTable />
         </Grid>
@@ -77,8 +80,8 @@ export default function CalculatorOutput(props) {
             style={{ display: "inline-block" }}
             gutterBottom
           >
-            <div class="circle circle1">4</div>
-            RED STAG FULLFILMENT CENTERS
+            <span className="circle">4</span>
+            <strong>RED STAG FULLFILMENT CENTERS</strong>
           </Typography>
         </Grid>
         <Grid item xs={6}>
@@ -95,12 +98,14 @@ export default function CalculatorOutput(props) {
         style={{
           backgroundColor: "#FAFAFA",
           padding: "10px 40px",
-          margin: "60px 0"
+          margin: "20px 0"
         }}
       >
         <Grid item xs={12} md={8}>
           <Typography id="input-slider" gutterBottom>
-            RED STAG FULLFILLMENT
+          {chosenDist
+              ? "FULLFILLMENT FROM " + chosenDist.toUpperCase()
+              : "SELECT FULLFILLMENT SCENARIO"}
           </Typography>
           <ZoneTable />
         </Grid>

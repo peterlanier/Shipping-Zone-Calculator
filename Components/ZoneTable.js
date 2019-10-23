@@ -10,22 +10,41 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    // overflowX: "auto"
+    overflowX: "auto"
   },
   table: {
     minWidth: 400
   }
 });
 
-function createData(label, zone2, zone3, zone4, zone5, zone6, zone7, zone8) {
-  return { label, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
+function createData(
+  format,
+  label,
+  zone2,
+  zone3,
+  zone4,
+  zone5,
+  zone6,
+  zone7,
+  zone8
+) {
+  return { format, label, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
 }
 
 const resultsRow = [
-  createData("# of something", 22, 33, 44, 55, 66, 77, 88),
-  createData("# parcels shipped", 74, 15, 58, 46, 92, 60, 206),
-  createData("Avg. Per Parcel Cost", 14.99, 17.59, 19.51, 23.15, 28.58, 33.51, 39.41)
-  ];
+  createData(
+    "currency",
+    "Total cost per zone",
+    14.99,
+    17.59,
+    19.51,
+    23.15,
+    28.58,
+    33.51,
+    39.41
+  ),
+  createData("percentage", "% of parcels per zone", 7, 12, 17, 23, 26, 32, 36)
+];
 
 export default function ZoneTable() {
   const classes = useStyles();
@@ -62,15 +81,31 @@ export default function ZoneTable() {
         </TableHead>
         <TableBody>
           {resultsRow.map(row => (
-            <TableRow key={row.name}>
-              <TableCell align="center" style={cellStyle}>{row.label}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone2}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone3}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone4}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone5}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone6}</TableCell>
-              <TableCell align="center" style={cellStyle}>{row.zone7}</TableCell>
-              <TableCell align="center">{row.zone8}</TableCell>
+            <TableRow key={row.label}>
+              <TableCell align="center" style={cellStyle}>
+                {row.label}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone2 : row.zone2 + "%"}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone3 : row.zone3 + "%"}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone4 : row.zone4 + "%"}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone5 : row.zone5 + "%"}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone6 : row.zone6 + "%"}
+              </TableCell>
+              <TableCell align="center" style={cellStyle}>
+                {row.format === "currency" ? "$" + row.zone7 : row.zone7 + "%"}
+              </TableCell>
+              <TableCell align="center">
+                {row.format === "currency" ? "$" + row.zone8 : row.zone8 + "%"}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

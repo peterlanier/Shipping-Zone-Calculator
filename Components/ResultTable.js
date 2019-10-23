@@ -32,6 +32,7 @@ export default function ResultsTable() {
     <Paper className={classes.root}>
 
       <Table className={classes.table} aria-label="simple table">
+      <TableBody>
         <TableRow>
           <TableCell>Billed Weight</TableCell>
           <TableCell style={tableHeader}>{orders * weight} lbs.</TableCell>
@@ -56,6 +57,7 @@ export default function ResultsTable() {
           <TableCell><strong>Total Cost:</strong></TableCell>
           <TableCell style={tableTotal}>${(orders * weight * .6).toFixed(2)}</TableCell>
         </TableRow>
+        </TableBody>
       </Table>
     </Paper>
   );
