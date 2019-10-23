@@ -6,7 +6,12 @@ import Grid from "@material-ui/core/Grid";
 import CitySelect from "./Components/CitySelect";
 import ResultTable from "./Components/ResultTable";
 import Typography from "@material-ui/core/Typography";
-import { CityListContext, DistListContext, ChosenCityContext, ChosenDistContext } from "./Store";
+import {
+  CityListContext,
+  DistListContext,
+  ChosenCityContext,
+  ChosenDistContext
+} from "./Store";
 
 export default function CalculatorOutput(props) {
   const [cityList, setCity] = useContext(CityListContext);
@@ -48,13 +53,13 @@ export default function CalculatorOutput(props) {
           margin: "60px 0"
         }}
       >
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={8}>
           <Typography id="input-slider" gutterBottom>
-            FULLFILLMENT FROM SELECTED AREAS
+            { chosenCity ? "FULLFILLMENT FROM " + chosenCity.toUpperCase() : null}
           </Typography>
           <ZoneTable />
         </Grid>
-        <Grid item xs={12} md={6} style={{ paddingLeft: "100px" }}>
+        <Grid item xs={12} md={4}>
           <Typography id="input-slider" gutterBottom>
             RESULTS
           </Typography>
@@ -93,13 +98,13 @@ export default function CalculatorOutput(props) {
           margin: "60px 0"
         }}
       >
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={8}>
           <Typography id="input-slider" gutterBottom>
-            FULLFILLMENT FROM SELECTED AREAS
+            RED STAG FULLFILLMENT
           </Typography>
           <ZoneTable />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={4}>
           <Typography id="input-slider" gutterBottom>
             RESULTS
           </Typography>

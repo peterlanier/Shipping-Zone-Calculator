@@ -12,7 +12,6 @@ const Store = ({ children }) => {
   const [orders, setOrders] = useState(50);
   const [weight, setWeight] = useState(50);
   const [cityList, setCity] = useState([
-    "select",
     "New York",
     "L.A.",
     "San Fransisco"
@@ -22,8 +21,8 @@ const Store = ({ children }) => {
     "Knoxville",
     "Salt Lake City"
   ]);
-  const [chosenCity, setChosenCity] = useState("select");
-  const [chosenDist, setChosenDist] = useState("select");
+  const [chosenCity, setChosenCity] = useState("");
+  const [chosenDist, setChosenDist] = useState("");
 
   return (
     <OrdersContext.Provider value={[orders, setOrders]}>

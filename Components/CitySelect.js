@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
@@ -7,9 +7,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 export default function CitySelect(props) {
 
-  const {values, value, setValue} = props;
+  const [isSelected, setIsSelected] = useState(false);
 
-  console.log(setValue, value);
+  const {values, value, setValue} = props;
 
   const List = values.map((city, key) => (
     <MenuItem value={city}>{city}</MenuItem>
@@ -18,6 +18,9 @@ export default function CitySelect(props) {
 
   const handleChange = (event, newValue) => {
     setValue(event.target.value);
+    if(!isSelected) {
+      setIsSelected(true);
+    }
   };
 
   return (
@@ -27,7 +30,7 @@ export default function CitySelect(props) {
       
       <Select
         onChange={handleChange}
-        value={value}
+        value={isSelected ? value : ''}
         autoWidth={false}
         inputProps={{
           name: "City",

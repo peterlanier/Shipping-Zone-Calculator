@@ -10,28 +10,26 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    overflowX: "auto"
+    // overflowX: "auto"
   },
   table: {
     minWidth: 400
   }
 });
 
+function createData(label, zone2, zone3, zone4, zone5, zone6, zone7, zone8) {
+  return { label, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
+}
 
-
-// function createData(zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8) {
-//   return { zone1, zone2, zone3, zone4, zone5, zone6, zone7, zone8 };
-// }
-
-// const resultsRow = [
-//   createData(11, 22, 33, 44, 55, 66, 77, 88 ),
-// ]
+const resultsRow = [
+  createData("# of something", 22, 33, 44, 55, 66, 77, 88),
+  createData("# parcels shipped", 74, 15, 58, 46, 92, 60, 206),
+  createData("Avg. Per Parcel Cost", 14.99, 17.59, 19.51, 23.15, 28.58, 33.51, 39.41)
+  ];
 
 export default function ZoneTable() {
   const classes = useStyles();
   const cellStyle = { borderRight: "1px solid rgba(0, 0, 0, 0.5)" };
-
-  const 
 
   return (
     <Paper className={classes.root}>
@@ -39,7 +37,7 @@ export default function ZoneTable() {
         <TableHead>
           <TableRow>
             <TableCell align="center" style={cellStyle}>
-              1
+              Zones
             </TableCell>
             <TableCell align="center" style={cellStyle}>
               2
@@ -63,7 +61,18 @@ export default function ZoneTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          
+          {resultsRow.map(row => (
+            <TableRow key={row.name}>
+              <TableCell align="center" style={cellStyle}>{row.label}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone2}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone3}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone4}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone5}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone6}</TableCell>
+              <TableCell align="center" style={cellStyle}>{row.zone7}</TableCell>
+              <TableCell align="center">{row.zone8}</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </Paper>
